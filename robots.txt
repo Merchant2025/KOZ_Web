@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+# Sitemap location
+Sitemap: https://koz-kam.ru/sitemap.xml
 
-# Disallow admin or private areas if they exist
-# Disallow: /admin/
-# Disallow: /private/
+# Note: This site uses client-side routing. All content is accessible via index.html.
+# For production, ensure HTTPS is enforced at the server level.

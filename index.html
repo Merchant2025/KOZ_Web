@@ -7,11 +7,16 @@
 <meta name="keywords" content="Камышинский завод, промышленное оборудование, производство, Россия">
 <meta name="author" content="Камышинский опытный завод">
 <meta name="robots" content="index, follow">
+<!-- Security Headers via Meta Tags -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <title>Камышинский опытный завод — Официальный сайт</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" integrity="sha384-placeholder" crossorigin="anonymous">
+<script src="https://cdn.tailwindcss.com" integrity="sha384-placeholder" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,8 +25,8 @@
 <header id="main-header" style="position:fixed;top:0;left:0;right:0;z-index:55;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);transition:all 0.3s;">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px;">
     <!-- Logo -->
-    <a href="#" onclick="showPage('home');return false;" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
-      <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/18b29e723-47f5-4e6d-9851-689a53aeab1e.png" alt="КОЗ Логотип" style="height:48px;width:auto;" onerror="this.style.display='none'">
+    <a href="#" data-action="showPage" data-page="home" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+      <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/18b29e723-47f5-4e6d-9851-689a53aeab1e.png" alt="КОЗ Логотип" style="height:48px;width:auto;" data-onerror="hide">
       <div>
         <div style="font-weight:800;font-size:1.05rem;color:#1E5799;line-height:1.2;" data-ru="Камышинский" data-en="Kamyshinsky">Камышинский</div>
         <div style="font-weight:600;font-size:0.8rem;color:#475569;line-height:1.2;" data-ru="Опытный Завод" data-en="Experimental Plant">Опытный Завод</div>
@@ -32,18 +37,18 @@
     <div style="display:flex;align-items:center;gap:16px;">
       <!-- Language toggle -->
       <div style="display:flex;background:var(--gray-100);border-radius:10px;overflow:hidden;border:1px solid var(--gray-200);">
-        <button onclick="switchLang('ru')" id="lang-ru" style="padding:8px 16px;border:none;background:#1E5799;color:#fff;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">RU</button>
-        <button onclick="switchLang('en')" id="lang-en" style="padding:8px 16px;border:none;background:transparent;color:var(--gray-600);font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">EN</button>
+        <button data-action="switchLang" data-lang="ru" id="lang-ru" style="padding:8px 16px;border:none;background:#1E5799;color:#fff;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">RU</button>
+        <button data-action="switchLang" data-lang="en" id="lang-en" style="padding:8px 16px;border:none;background:transparent;color:var(--gray-600);font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">EN</button>
       </div>
 
       <!-- Personal cabinet -->
-      <button onclick="openModal('cabinet-modal')" style="display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,#1E5799,#2A6BB5);color:#fff;border:none;border-radius:10px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s;font-family:inherit;box-shadow:0 4px 15px rgba(30,87,153,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 25px rgba(30,87,153,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(30,87,153,0.3)'">
+      <button data-action="openModal" data-modal="cabinet-modal" class="hover-effect" style="display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,#1E5799,#2A6BB5);color:#fff;border:none;border-radius:10px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s;font-family:inherit;box-shadow:0 4px 15px rgba(30,87,153,0.3);">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <span data-ru="Личный кабинет" data-en="Personal Account">Личный кабинет</span>
       </button>
 
       <!-- Hamburger -->
-      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
+      <button class="hamburger-btn" id="hamburgerBtn" data-action="toggleMenu" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -51,7 +56,7 @@
 </header>
 
 <!-- NAV OVERLAY -->
-<div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+<div class="nav-overlay" id="navOverlay" data-action="toggleMenu"></div>
 
 <!-- SIDE NAVIGATION -->
 <nav class="side-nav" id="sideNav">
@@ -59,12 +64,12 @@
     <div style="font-weight:700;font-size:1.25rem;color:#1E5799;margin-bottom:4px;" data-ru="Навигация" data-en="Navigation">Навигация</div>
     <div style="font-size:0.85rem;color:var(--gray-600);" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский опытный завод</div>
   </div>
-  <a href="#" onclick="showPage('home');toggleMenu();return false;" data-ru=" Главная" data-en="🏠 Home">🏠 Главная</a>
-  <a href="#" onclick="showPage('about');toggleMenu();return false;" data-ru="🏭 О предприятии" data-en="🏭 About Company"> О предприятии</a>
-  <a href="#" onclick="showPage('catalog');toggleMenu();return false;" data-ru="📦 Каталог оборудования" data-en="📦 Equipment Catalog"> Каталог оборудования</a>
-  <a href="#" onclick="showPage('partners');toggleMenu();return false;" data-ru="🤝 Наши партнёры" data-en="🤝 Our Partners">🤝 Наши партнёры</a>
-  <a href="#" onclick="showPage('careers');toggleMenu();return false;" data-ru="💼 Вакансии" data-en="💼 Careers">💼 Вакансии</a>
-  <a href="#" onclick="showPage('contact');toggleMenu();return false;" data-ru="📞 Связь с продажами" data-en="📞 Contact Sales"> Связь с продажами</a>
+  <a href="#" data-action="showPage" data-page="home" data-close-menu="true" data-ru=" Главная" data-en="🏠 Home">🏠 Главная</a>
+  <a href="#" data-action="showPage" data-page="about" data-close-menu="true" data-ru="🏭 О предприятии" data-en="🏭 About Company"> О предприятии</a>
+  <a href="#" data-action="showPage" data-page="catalog" data-close-menu="true" data-ru="📦 Каталог оборудования" data-en="📦 Equipment Catalog"> Каталог оборудования</a>
+  <a href="#" data-action="showPage" data-page="partners" data-close-menu="true" data-ru="🤝 Наши партнёры" data-en="🤝 Our Partners">🤝 Наши партнёры</a>
+  <a href="#" data-action="showPage" data-page="careers" data-close-menu="true" data-ru="💼 Вакансии" data-en="💼 Careers">💼 Вакансии</a>
+  <a href="#" data-action="showPage" data-page="contact" data-close-menu="true" data-ru="📞 Связь с продажами" data-en="📞 Contact Sales"> Связь с продажами</a>
   <div style="margin-top:32px;padding:20px;background:var(--primary-lighter);border-radius:14px;">
     <div style="font-weight:700;font-size:0.95rem;color:#1E5799;margin-bottom:8px;" data-ru="Нужна помощь?" data-en="Need help?">Нужна помощь?</div>
     <div style="font-size:0.85rem;color:var(--gray-600);margin-bottom:12px;" data-ru="Свяжитесь с нашим отделом продаж" data-en="Contact our sales department">Свяжитесь с нашим отделом продаж</div>
@@ -90,11 +95,11 @@
         <h1 style="font-size:3.5rem;font-weight:900;color:#fff;line-height:1.1;margin-bottom:24px;" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский<br>опытный<br>завод</h1>
         <p style="font-size:1.2rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;max-width:520px;" data-ru="Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная десятилетиями." data-en="Design, manufacturing, and supply of oil and gas equipment. Reliability proven over decades.">Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная десятилетиями.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <button onclick="showPage('catalog')" class="btn-white btn-lg" style="color:#1E5799;">
+          <button data-action="showPage" data-page="catalog" class="btn-white btn-lg" style="color:#1E5799;">
             <span data-ru="Каталог оборудования" data-en="Equipment Catalog">Каталог оборудования</span>
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <button onclick="showPage('contact')" class="btn-lg" style="background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);">
+          <button data-action="showPage" data-page="contact" class="btn-lg" style="background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);">
             <span data-ru="Связаться с нами" data-en="Contact Us">Связаться с нами</span>
           </button>
         </div>
@@ -141,21 +146,21 @@
       <h2 style="text-align:center;font-size:2.25rem;font-weight:800;color:var(--gray-800);margin-bottom:16px;" data-ru="Навигация по сайту" data-en="Site Navigation">Навигация по сайту</h2>
       <p style="text-align:center;color:var(--gray-600);font-size:1.1rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;" data-ru="Выберите интересующий раздел для подробной информации" data-en="Choose a section for detailed information">Выберите интересующий раздел для подробной информации</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-        <div class="card" onclick="showPage('about')" style="cursor:pointer;text-align:center;">
+        <div class="card" data-action="showPage" data-page="about" style="cursor:pointer;text-align:center;">
           <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
             <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M4 12h16M6 4h12l2 8H4l2-8z"/></svg>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="О предприятии" data-en="About Company">О предприятии</h3>
           <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="История, миссия, производство и достижения завода" data-en="History, mission, production and achievements">История, миссия, производство и достижения завода</p>
         </div>
-        <div class="card" onclick="showPage('catalog')" style="cursor:pointer;text-align:center;">
+        <div class="card" data-action="showPage" data-page="catalog" style="cursor:pointer;text-align:center;">
           <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
             <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
           </div>
           <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Каталог оборудования" data-en="Equipment Catalog">Каталог оборудования</h3>
           <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Основное оборудование с опросными листами" data-en="Main equipment with data sheets">Основное оборудование с опросными листами</p>
         </div>
-        <div class="card" onclick="showPage('contact')" style="cursor:pointer;text-align:center;">
+        <div class="card" data-action="showPage" data-page="contact" style="cursor:pointer;text-align:center;">
           <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
             <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
