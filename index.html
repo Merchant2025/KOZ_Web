@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Камышинский опытный завод — официальный сайт производителя промышленного оборудования. Каталог продукции, услуги, контакты.">
+<meta name="keywords" content="Камышинский завод, промышленное оборудование, производство, Россия">
+<meta name="author" content="Камышинский опытный завод">
+<meta name="robots" content="index, follow">
+<title>Камышинский опытный завод — Официальный сайт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="main-header" style="position:fixed;top:0;left:0;right:0;z-index:55;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);transition:all 0.3s;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px;">
+    <!-- Logo -->
+    <a href="#" onclick="showPage('home');return false;" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+      <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/18b29e723-47f5-4e6d-9851-689a53aeab1e.png" alt="КОЗ Логотип" style="height:48px;width:auto;" onerror="this.style.display='none'">
+      <div>
+        <div style="font-weight:800;font-size:1.05rem;color:#1E5799;line-height:1.2;" data-ru="Камышинский" data-en="Kamyshinsky">Камышинский</div>
+        <div style="font-weight:600;font-size:0.8rem;color:#475569;line-height:1.2;" data-ru="Опытный Завод" data-en="Experimental Plant">Опытный Завод</div>
+      </div>
+    </a>
+
+    <!-- Right controls -->
+    <div style="display:flex;align-items:center;gap:16px;">
+      <!-- Language toggle -->
+      <div style="display:flex;background:var(--gray-100);border-radius:10px;overflow:hidden;border:1px solid var(--gray-200);">
+        <button onclick="switchLang('ru')" id="lang-ru" style="padding:8px 16px;border:none;background:#1E5799;color:#fff;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">RU</button>
+        <button onclick="switchLang('en')" id="lang-en" style="padding:8px 16px;border:none;background:transparent;color:var(--gray-600);font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.3s;font-family:inherit;">EN</button>
+      </div>
+
+      <!-- Personal cabinet -->
+      <button onclick="openModal('cabinet-modal')" style="display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,#1E5799,#2A6BB5);color:#fff;border:none;border-radius:10px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.3s;font-family:inherit;box-shadow:0 4px 15px rgba(30,87,153,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 25px rgba(30,87,153,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(30,87,153,0.3)'">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-ru="Личный кабинет" data-en="Personal Account">Личный кабинет</span>
+      </button>
+
+      <!-- Hamburger -->
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- NAV OVERLAY -->
+<div class="nav-overlay" id="navOverlay" onclick="toggleMenu()"></div>
+
+<!-- SIDE NAVIGATION -->
+<nav class="side-nav" id="sideNav">
+  <div style="margin-bottom:32px;">
+    <div style="font-weight:700;font-size:1.25rem;color:#1E5799;margin-bottom:4px;" data-ru="Навигация" data-en="Navigation">Навигация</div>
+    <div style="font-size:0.85rem;color:var(--gray-600);" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский опытный завод</div>
+  </div>
+  <a href="#" onclick="showPage('home');toggleMenu();return false;" data-ru=" Главная" data-en="🏠 Home">🏠 Главная</a>
+  <a href="#" onclick="showPage('about');toggleMenu();return false;" data-ru="🏭 О предприятии" data-en="🏭 About Company"> О предприятии</a>
+  <a href="#" onclick="showPage('catalog');toggleMenu();return false;" data-ru="📦 Каталог оборудования" data-en="📦 Equipment Catalog"> Каталог оборудования</a>
+  <a href="#" onclick="showPage('partners');toggleMenu();return false;" data-ru="🤝 Наши партнёры" data-en="🤝 Our Partners">🤝 Наши партнёры</a>
+  <a href="#" onclick="showPage('careers');toggleMenu();return false;" data-ru="💼 Вакансии" data-en="💼 Careers">💼 Вакансии</a>
+  <a href="#" onclick="showPage('contact');toggleMenu();return false;" data-ru="📞 Связь с продажами" data-en="📞 Contact Sales"> Связь с продажами</a>
+  <div style="margin-top:32px;padding:20px;background:var(--primary-lighter);border-radius:14px;">
+    <div style="font-weight:700;font-size:0.95rem;color:#1E5799;margin-bottom:8px;" data-ru="Нужна помощь?" data-en="Need help?">Нужна помощь?</div>
+    <div style="font-size:0.85rem;color:var(--gray-600);margin-bottom:12px;" data-ru="Свяжитесь с нашим отделом продаж" data-en="Contact our sales department">Свяжитесь с нашим отделом продаж</div>
+    <a href="tel:+78445123456" style="font-weight:700;color:#1E5799;text-decoration:none;font-size:1.1rem;">+7 (8445) 12-34-56</a>
+  </div>
+</nav>
+
+<!-- ==================== PAGE: HOME ==================== -->
+<main id="page-home" class="section-page active page-transition" style="padding-top:76px;">
+
+  <!-- Hero Section -->
+  <section style="position:relative;min-height:calc(100vh - 76px);display:flex;align-items:center;background:linear-gradient(135deg,#0A1628 0%,#164073 50%,#1E5799 100%);overflow:hidden;">
+    <!-- Decorative elements -->
+    <div style="position:absolute;inset:0;opacity:0.1;background:url('data:image/svg+xml,%3Csvg width=&quot;100&quot; height=&quot;100&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Crect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;0.5&quot;/%3E%3C/svg%3E');"></div>
+    <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:rgba(42,107,181,0.15);filter:blur(80px);"></div>
+    <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;border-radius:50%;background:rgba(30,87,153,0.2);filter:blur(80px);"></div>
+
+    <div style="max-width:1280px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%;">
+      <div>
+        <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:24px;backdrop-filter:blur(10px);">
+          <span data-ru="🏭 Надёжный партнёр с 1957 года" data-en="🏭 Trusted Partner Since 1957">🏭 Надёжный партнёр с 1957 года</span>
+        </div>
+        <h1 style="font-size:3.5rem;font-weight:900;color:#fff;line-height:1.1;margin-bottom:24px;" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский<br>опытный<br>завод</h1>
+        <p style="font-size:1.2rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;max-width:520px;" data-ru="Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная десятилетиями." data-en="Design, manufacturing, and supply of oil and gas equipment. Reliability proven over decades.">Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная десятилетиями.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <button onclick="showPage('catalog')" class="btn-white btn-lg" style="color:#1E5799;">
+            <span data-ru="Каталог оборудования" data-en="Equipment Catalog">Каталог оборудования</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button onclick="showPage('contact')" class="btn-lg" style="background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);">
+            <span data-ru="Связаться с нами" data-en="Contact Us">Связаться с нами</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Image Placeholder -->
+      <div class="img-placeholder" style="border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);min-height:400px;border-radius:20px;color:rgba(255,255,255,0.5);">
+        <div style="text-align:center;">
+          <svg width="64" height="64" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:16px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <div style="font-size:1rem;" data-ru="Главная фотография предприятия" data-en="Main Enterprise Photo">Главная фотография предприятия</div>
+          <div style="font-size:0.8rem;margin-top:4px;opacity:0.6;">[ Будет загружено позже ]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats -->
+  <section style="background:#fff;padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+        <div class="stat-item" style="padding:32px;background:var(--gray-50);border-radius:16px;border:1px solid var(--gray-200);">
+          <div class="stat-number">67+</div>
+          <div style="color:var(--gray-600);font-weight:500;margin-top:8px;" data-ru="Лет на рынке" data-en="Years in Market">Лет на рынке</div>
+        </div>
+        <div class="stat-item" style="padding:32px;background:var(--gray-50);border-radius:16px;border:1px solid var(--gray-200);">
+          <div class="stat-number">500+</div>
+          <div style="color:var(--gray-600);font-weight:500;margin-top:8px;" data-ru="Единиц оборудования" data-en="Equipment Units">Единиц оборудования</div>
+        </div>
+        <div class="stat-item" style="padding:32px;background:var(--gray-50);border-radius:16px;border:1px solid var(--gray-200);">
+          <div class="stat-number">150+</div>
+          <div style="color:var(--gray-600);font-weight:500;margin-top:8px;" data-ru="Клиентов" data-en="Clients">Клиентов</div>
+        </div>
+        <div class="stat-item" style="padding:32px;background:var(--gray-50);border-radius:16px;border:1px solid var(--gray-200);">
+          <div class="stat-number">12</div>
+          <div style="color:var(--gray-600);font-weight:500;margin-top:8px;" data-ru="Патентов" data-en="Patents">Патентов</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section style="background:var(--gray-50);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <h2 style="text-align:center;font-size:2.25rem;font-weight:800;color:var(--gray-800);margin-bottom:16px;" data-ru="Навигация по сайту" data-en="Site Navigation">Навигация по сайту</h2>
+      <p style="text-align:center;color:var(--gray-600);font-size:1.1rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;" data-ru="Выберите интересующий раздел для подробной информации" data-en="Choose a section for detailed information">Выберите интересующий раздел для подробной информации</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div class="card" onclick="showPage('about')" style="cursor:pointer;text-align:center;">
+          <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M4 12h16M6 4h12l2 8H4l2-8z"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="О предприятии" data-en="About Company">О предприятии</h3>
+          <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="История, миссия, производство и достижения завода" data-en="History, mission, production and achievements">История, миссия, производство и достижения завода</p>
+        </div>
+        <div class="card" onclick="showPage('catalog')" style="cursor:pointer;text-align:center;">
+          <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Каталог оборудования" data-en="Equipment Catalog">Каталог оборудования</h3>
+          <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Основное оборудование с опросными листами" data-en="Main equipment with data sheets">Основное оборудование с опросными листами</p>
+        </div>
+        <div class="card" onclick="showPage('contact')" style="cursor:pointer;text-align:center;">
+          <div style="width:64px;height:64px;background:var(--primary-lighter);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#1E5799;">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Связь с отделом продаж" data-en="Contact Sales">Связь с отделом продаж</h3>
+          <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Все способы связи: телефон, email, форма заявки" data-en="All contact methods: phone, email, form">Все способы связи: телефон, email, форма заявки</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="newsletter-banner" style="padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1;text-align:center;">
+      <h2 style="font-size:2.25rem;font-weight:800;color:#fff;margin-bottom:16px;" data-ru="Готовы к сотрудничеству?" data-en="Ready to Cooperate?">Готовы к сотрудничеству?</h2>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;" data-ru="Свяжитесь с нашим отделом продаж любым удобным способом" data-en="Contact our sales department in any convenient way">Свяжитесь с нашим отделом продаж любым удобным способом</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="tel:+78445123456" class="btn-white" style="font-weight:700;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span data-ru="Позвонить" data-en="Call">Позвонить</span>
+        </a>
+        <a href="mailto:sales@koz-kam.ru" class="btn-white" style="font-weight:700;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <span data-ru="Написать email" data-en="Send Email">Написать email</span>
+        </a>
+        <button onclick="showPage('contact')" class="btn-white" style="font-weight:700;">
+          <span data-ru="Оставить заявку" data-en="Submit Request">Оставить заявку</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PAGE: ABOUT ==================== -->
+<main id="page-about" class="section-page page-transition" style="padding-top:76px;">
+
+  <!-- About Hero -->
+  <section style="background:linear-gradient(135deg,#0A1628,#1E5799);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;">
+      <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:20px;">
+        <span data-ru="О предприятии" data-en="About Company">О предприятии</span>
+      </div>
+      <h1 style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:20px;" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский опытный завод</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.7;" data-ru="Одно из ведущих предприятий России в области проектирования и производства нефтегазового оборудования" data-en="One of Russia's leading enterprises in the design and manufacturing of oil and gas equipment">Одно из ведущих предприятий России в области проектирования и производства нефтегазового оборудования</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section style="padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <!-- Company Photo -->
+      <div class="img-placeholder" style="margin-bottom:48px;min-height:350px;border-radius:20px;">
+        <div style="text-align:center;">
+          <svg width="64" height="64" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:12px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <div style="font-size:1rem;color:var(--gray-600);" data-ru="Фотография предприятия" data-en="Enterprise Photo">Фотография предприятия</div>
+          <div style="font-size:0.8rem;color:var(--gray-300);margin-top:4px;">[ Будет загружено позже ]</div>
+        </div>
+      </div>
+
+      <!-- Two Column -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+        <div>
+          <h2 style="font-size:2rem;font-weight:800;color:var(--gray-800);margin-bottom:20px;" data-ru="История и миссия" data-en="History & Mission">История и миссия</h2>
+          <p style="color:var(--gray-600);line-height:1.8;margin-bottom:16px;" data-ru="Камышинский опытный завод основан в 1957 году в г. Камышин Волгоградской области. За более чем 67 лет работы предприятие стало одним из ключевых производителей нефтегазового оборудования в России." data-en="Kamyshinsky Experimental Plant was founded in 1957 in Kamyshin, Volgograd Region. Over more than 67 years, the enterprise has become one of the key manufacturers of oil and gas equipment in Russia.">Камышинский опытный завод основан в 1957 году в г. Камышин Волгоградской области. За более чем 67 лет работы предприятие стало одним из ключевых производителей нефтегазового оборудования в России.</p>
+          <p style="color:var(--gray-600);line-height:1.8;margin-bottom:16px;" data-ru="Наша миссия — обеспечение надёжным и качественным оборудованием предприятий нефтегазовой отрасли. Мы постоянно совершенствуем технологии и расширяем ассортимент продукции." data-en="Our mission is to provide reliable and high-quality equipment for the oil and gas industry. We constantly improve technologies and expand our product range.">Наша миссия — обеспечение надёжным и качественным оборудованием предприятий нефтегазовой отрасли. Мы постоянно совершенствуем технологии и расширяем ассортимент продукции.</p>
+          <p style="color:var(--gray-600);line-height:1.8;" data-ru="Предприятие оснащено современным производственным оборудованием, аттестованными специалистами и собственной лабораторией контроля качества." data-en="The enterprise is equipped with modern production equipment, certified specialists, and its own quality control laboratory.">Предприятие оснащено современным производственным оборудованием, аттестованными специалистами и собственной лабораторией контроля качества.</p>
+        </div>
+        <div>
+          <!-- Production Photo -->
+          <div class="img-placeholder" style="margin-bottom:24px;min-height:200px;">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <div style="font-size:0.9rem;color:var(--gray-600);" data-ru="Производственные мощности" data-en="Production Facilities">Производственные мощности</div>
+            </div>
+          </div>
+          <!-- Certificates -->
+          <div class="img-placeholder" style="min-height:200px;">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <div style="font-size:0.9rem;color:var(--gray-600);" data-ru="Сертификаты и лицензии" data-en="Certificates & Licenses">Сертификаты и лицензии</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Facts -->
+      <div style="margin-top:64px;">
+        <h2 style="font-size:2rem;font-weight:800;color:var(--gray-800);margin-bottom:32px;text-align:center;" data-ru="Ключевые факты" data-en="Key Facts">Ключевые факты</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+          <div style="padding:32px;background:var(--primary-lighter);border-radius:16px;text-align:center;">
+            <div style="font-size:0.85rem;color:var(--primary);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;" data-ru="Основан" data-en="Founded">Основан</div>
+            <div style="font-size:2.5rem;font-weight:900;color:#1E5799;">1957</div>
+            <div style="color:var(--gray-600);margin-top:4px;" data-ru="г. Камышин" data-en="Kamyshin">г. Камышин</div>
+          </div>
+          <div style="padding:32px;background:var(--primary-lighter);border-radius:16px;text-align:center;">
+            <div style="font-size:0.85rem;color:var(--primary);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;" data-ru="Площадь" data-en="Area">Площадь</div>
+            <div style="font-size:2.5rem;font-weight:900;color:#1E5799;">45 000</div>
+            <div style="color:var(--gray-600);margin-top:4px;" data-ru="м² производственных площадей" data-en="m² of production space">м² производственных площадей</div>
+          </div>
+          <div style="padding:32px;background:var(--primary-lighter);border-radius:16px;text-align:center;">
+            <div style="font-size:0.85rem;color:var(--primary);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;" data-ru="Персонал" data-en="Personnel">Персонал</div>
+            <div style="font-size:2.5rem;font-weight:900;color:#1E5799;">1 200+</div>
+            <div style="color:var(--gray-600);margin-top:4px;" data-ru="квалифицированных специалистов" data-en="qualified specialists">квалифицированных специалистов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PAGE: CATALOG ==================== -->
+<main id="page-catalog" class="section-page page-transition" style="padding-top:76px;">
+
+  <!-- Catalog Hero -->
+  <section style="background:linear-gradient(135deg,#0A1628,#1E5799);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;">
+      <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:20px;">
+        <span data-ru="Продукция" data-en="Products">Продукция</span>
+      </div>
+      <h1 style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:20px;" data-ru="Каталог оборудования" data-en="Equipment Catalog">Каталог оборудования</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.7;" data-ru="Основное нефтегазовое оборудование собственного производства. Для заказа заполните опросный лист" data-en="Main oil and gas equipment of our own production. Fill out the data sheet to order">Основное нефтегазовое оборудование собственного производства. Для заказа заполните опросный лист</p>
+    </div>
+  </section>
+
+  <!-- Catalog Items -->
+  <section style="padding:80px 24px;background:var(--gray-50);">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:32px;">
+
+        <!-- Equipment 1 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Нефтяные насосные станции" data-en="Oil Pump Stations">Нефтяные насосные станции</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Комплексные насосные станции для перекачки нефти и нефтепродуктов. Производительность до 500 м³/ч." data-en="Comprehensive pump stations for oil and petroleum products. Capacity up to 500 m³/h.">Комплексные насосные станции для перекачки нефти и нефтепродуктов. Производительность до 500 м³/ч.</p>
+            <button onclick="openModal('questionnaire-1')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Equipment 2 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Сепараторы нефтяные" data-en="Oil Separators">Сепараторы нефтяные</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Горизонтальные и вертикальные сепараторы для разделения нефтяной эмульсии. Давление до 2.5 МПа." data-en="Horizontal and vertical separators for oil emulsion separation. Pressure up to 2.5 MPa.">Горизонтальные и вертикальные сепараторы для разделения нефтяной эмульсии. Давление до 2.5 МПа.</p>
+            <button onclick="openModal('questionnaire-2')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Equipment 3 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Теплообменные аппараты" data-en="Heat Exchangers">Теплообменные аппараты</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Кожухотрубные и пластинчатые теплообменники для систем подготовки нефти. Площадь теплообмена до 500 м²." data-en="Shell-and-tube and plate heat exchangers for oil treatment systems. Heat exchange area up to 500 m².">Кожухотрубные и пластинчатые теплообменники для систем подготовки нефти. Площадь теплообмена до 500 м².</p>
+            <button onclick="openModal('questionnaire-3')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Equipment 4 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Резервуары стальные" data-en="Steel Tanks">Резервуары стальные</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Вертикальные и горизонтальные стальные резервуары для хранения нефти и нефтепродуктов. Объём до 50 000 м³." data-en="Vertical and horizontal steel tanks for oil and petroleum storage. Volume up to 50,000 m³.">Вертикальные и горизонтальные стальные резервуары для хранения нефти и нефтепродуктов. Объём до 50 000 м³.</p>
+            <button onclick="openModal('questionnaire-4')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Equipment 5 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Установки подготовки нефти" data-en="Oil Treatment Units">Установки подготовки нефти</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Комплексные установки для подготовки нефти к транспортировке. Производительность до 1000 т/сут." data-en="Comprehensive units for oil treatment before transportation. Capacity up to 1000 tons/day.">Комплексные установки для подготовки нефти к транспортировке. Производительность до 1000 т/сут.</p>
+            <button onclick="openModal('questionnaire-5')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Equipment 6 -->
+        <div class="equip-card">
+          <div class="equip-img">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div style="font-size:0.85rem;color:var(--gray-600);margin-top:8px;" data-ru="Чертеж / Фото" data-en="Drawing / Photo">Чертеж / Фото</div>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="display:inline-block;padding:4px 12px;background:var(--primary-lighter);color:#1E5799;border-radius:100px;font-size:0.75rem;font-weight:700;margin-bottom:12px;" data-ru="Основное оборудование" data-en="Main Equipment">Основное оборудование</div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:10px;" data-ru="Запорная арматура" data-en="Valves & Fittings">Запорная арматура</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:20px;" data-ru="Задвижки, вентили, краны и обратные клапаны для нефтегазовых трубопроводов. DN 50–1200." data-en="Gates, valves, cocks and check valves for oil and gas pipelines. DN 50–1200.">Задвижки, вентили, краны и обратные клапаны для нефтегазовых трубопроводов. DN 50–1200.</p>
+            <button onclick="openModal('questionnaire-6')" class="btn-primary btn-sm" style="width:100%;justify-content:center;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              <span data-ru="Опросный лист" data-en="Data Sheet">Опросный лист</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog CTA -->
+  <section style="padding:60px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="background:var(--primary-lighter);border-radius:20px;padding:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;border:1px solid var(--primary);">
+        <div>
+          <h3 style="font-size:1.5rem;font-weight:800;color:var(--gray-800);margin-bottom:8px;" data-ru="Не нашли нужное оборудование?" data-en="Didn't Find the Right Equipment?">Не нашли нужное оборудование?</h3>
+          <p style="color:var(--gray-600);" data-ru="Свяжитесь с нами для индивидуального заказа и расчёта" data-en="Contact us for custom orders and calculations">Свяжитесь с нами для индивидуального заказа и расчёта</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="tel:+78445123456" class="btn-primary btn-sm">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-ru="Позвонить" data-en="Call">Позвонить</span>
+          </a>
+          <button onclick="showPage('contact')" class="btn-outline btn-sm">
+            <span data-ru="Оставить заявку" data-en="Submit Request">Оставить заявку</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PAGE: PARTNERS ==================== -->
+<main id="page-partners" class="section-page page-transition" style="padding-top:76px;">
+
+  <section style="background:linear-gradient(135deg,#0A1628,#1E5799);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;">
+      <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:20px;">
+        <span data-ru="Сотрудничество" data-en="Cooperation">Сотрудничество</span>
+      </div>
+      <h1 style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:20px;" data-ru="Наши партнёры" data-en="Our Partners">Наши партнёры</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.7;" data-ru="Мы гордимся сотрудничеством с крупнейшими компаниями нефтегазовой отрасли России" data-en="We are proud to cooperate with the largest companies in the Russian oil and gas industry">Мы гордимся сотрудничеством с крупнейшими компаниями нефтегазовой отрасли России</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <!-- Partner Grid -->
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:64px;">
+        <div class="partner-logo" style="padding:40px;">
+          <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/1a042c9a2-fa61-4401-8362-42dfa91893f6.png" alt="LUKOIL" style="max-height:80px;" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=&quot;text-align:center;&quot;><div style=&quot;font-size:2rem;font-weight:900;color:#1E5799;&quot;>ЛУКОЙЛ</div><div style=&quot;font-size:0.85rem;color:var(--gray-600);margin-top:4px;&quot;>Логотип будет загружен</div></div>'">
+        </div>
+        <div class="partner-logo" style="padding:40px;">
+          <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/1838b2e65-23ff-4846-85ed-d8ad15eaf977.png" alt="SIBUR" style="max-height:80px;" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=&quot;text-align:center;&quot;><div style=&quot;font-size:2rem;font-weight:900;color:#1E5799;&quot;>СИБУР</div><div style=&quot;font-size:0.85rem;color:var(--gray-600);margin-top:4px;&quot;>Логотип будет загружен</div></div>'">
+        </div>
+        <div class="partner-logo" style="padding:40px;">
+          <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/1a0032852-a38c-40e1-898f-039abfd88409.png" alt="GAZPROMNEFT" style="max-height:80px;" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=&quot;text-align:center;&quot;><div style=&quot;font-size:1.5rem;font-weight:900;color:#1E5799;&quot;>ГАЗПРОМНЕФТЬ</div><div style=&quot;font-size:0.85rem;color:var(--gray-600);margin-top:4px;&quot;>Логотип будет загружен</div></div>'">
+        </div>
+        <div class="partner-logo" style="padding:40px;">
+          <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/1c6c5133f-d86e-45fe-b573-0f9f31901042.png" alt="TATNEFT" style="max-height:80px;" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=&quot;text-align:center;&quot;><div style=&quot;font-size:2rem;font-weight:900;color:#1E5799;&quot;>ТАТНЕФТЬ</div><div style=&quot;font-size:0.85rem;color:var(--gray-600);margin-top:4px;&quot;>Логотип будет загружен</div></div>'">
+        </div>
+      </div>
+
+      <!-- Partnership Info -->
+      <div style="background:var(--gray-50);border-radius:20px;padding:48px;">
+        <h2 style="font-size:1.75rem;font-weight:800;color:var(--gray-800);margin-bottom:24px;text-align:center;" data-ru="Почему нам доверяют лидеры отрасли" data-en="Why Industry Leaders Trust Us">Почему нам доверяют лидеры отрасли</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
+          <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:var(--primary-lighter);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#1E5799;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <h4 style="font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Высокое качество" data-en="High Quality">Высокое качество</h4>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Сертифицированная продукция, соответствующая ГОСТ и международным стандартам" data-en="Certified products meeting GOST and international standards">Сертифицированная продукция, соответствующая ГОСТ и международным стандартам</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:var(--primary-lighter);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#1E5799;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 style="font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Надёжность" data-en="Reliability">Надёжность</h4>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Многолетний опыт работы с крупнейшими заказчиками нефтегазовой отрасли" data-en="Many years of experience with the largest oil and gas industry customers">Многолетний опыт работы с крупнейшими заказчиками нефтегазовой отрасли</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:var(--primary-lighter);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#1E5799;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 style="font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Индивидуальный подход" data-en="Individual Approach">Индивидуальный подход</h4>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Разработка оборудования по индивидуальным техническим заданиям заказчика" data-en="Equipment development according to individual customer specifications">Разработка оборудования по индивидуальным техническим заданиям заказчика</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PAGE: CAREERS ==================== -->
+<main id="page-careers" class="section-page page-transition" style="padding-top:76px;">
+
+  <section style="background:linear-gradient(135deg,#0A1628,#1E5799);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;">
+      <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:20px;">
+        <span data-ru="Карьера" data-en="Careers">Карьера</span>
+      </div>
+      <h1 style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:20px;" data-ru="Вакансии" data-en="Vacancies">Вакансии</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.7;" data-ru="Присоединяйтесь к команде профессионалов. Стабильная работа, достойная зарплата и развитие" data-en="Join a team of professionals. Stable work, fair salary and growth">Присоединяйтесь к команде профессионалов. Стабильная работа, достойная зарплата и развитие</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;">
+        <!-- Vacancies List -->
+        <div>
+          <h2 style="font-size:1.75rem;font-weight:800;color:var(--gray-800);margin-bottom:32px;" data-ru="Открытые вакансии" data-en="Open Positions">Открытые вакансии</h2>
+
+          <div class="vacancy-card" style="margin-bottom:16px;" onclick="this.classList.toggle('expanded')">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);" data-ru="Инженер-конструктор" data-en="Design Engineer">Инженер-конструктор</h3>
+                <div style="color:var(--gray-600);font-size:0.9rem;margin-top:4px;" data-ru="Полная занятость • Опыт от 3 лет" data-en="Full-time • 3+ years experience">Полная занятость • Опыт от 3 лет</div>
+              </div>
+              <div style="background:var(--primary-lighter);color:#1E5799;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.9rem;white-space:nowrap;">от 80 000 ₽</div>
+            </div>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Разработка конструкторской документации на нефтегазовое оборудование. Работа в AutoCAD, SolidWorks." data-en="Development of design documentation for oil and gas equipment. Working with AutoCAD, SolidWorks.">Разработка конструкторской документации на нефтегазовое оборудование. Работа в AutoCAD, SolidWorks.</p>
+          </div>
+
+          <div class="vacancy-card" style="margin-bottom:16px;" onclick="this.classList.toggle('expanded')">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);" data-ru="Сварщик НАКС" data-en="NAKS Welder">Сварщик НАКС</h3>
+                <div style="color:var(--gray-600);font-size:0.9rem;margin-top:4px;" data-ru="Полная занятость • Опыт от 2 лет" data-en="Full-time • 2+ years experience">Полная занятость • Опыт от 2 лет</div>
+              </div>
+              <div style="background:var(--primary-lighter);color:#1E5799;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.9rem;white-space:nowrap;">от 70 000 ₽</div>
+            </div>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Сварка металлоконструкций и трубопроводов. Аттестация НАКС обязательна." data-en="Welding of metal structures and pipelines. NAKS certification required.">Сварка металлоконструкций и трубопроводов. Аттестация НАКС обязательна.</p>
+          </div>
+
+          <div class="vacancy-card" style="margin-bottom:16px;" onclick="this.classList.toggle('expanded')">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);" data-ru="Менеджер по продажам" data-en="Sales Manager">Менеджер по продажам</h3>
+                <div style="color:var(--gray-600);font-size:0.9rem;margin-top:4px;" data-ru="Полная занятость • Опыт от 1 года" data-en="Full-time • 1+ year experience">Полная занятость • Опыт от 1 года</div>
+              </div>
+              <div style="background:var(--primary-lighter);color:#1E5799;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.9rem;white-space:nowrap;">от 60 000 ₽</div>
+            </div>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Работа с клиентами нефтегазовой отрасли, ведение переговоров, подготовка коммерческих предложений." data-en="Working with oil and gas industry clients, negotiations, preparing commercial offers.">Работа с клиентами нефтегазовой отрасли, ведение переговоров, подготовка коммерческих предложений.</p>
+          </div>
+
+          <div class="vacancy-card" style="margin-bottom:16px;" onclick="this.classList.toggle('expanded')">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);" data-ru="Инженер-технолог" data-en="Process Engineer">Инженер-технолог</h3>
+                <div style="color:var(--gray-600);font-size:0.9rem;margin-top:4px;" data-ru="Полная занятость • Опыт от 3 лет" data-en="Full-time • 3+ years experience">Полная занятость • Опыт от 3 лет</div>
+              </div>
+              <div style="background:var(--primary-lighter);color:#1E5799;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.9rem;white-space:nowrap;">от 85 000 ₽</div>
+            </div>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Разработка технологических процессов производства нефтегазового оборудования." data-en="Development of technological processes for oil and gas equipment production.">Разработка технологических процессов производства нефтегазового оборудования.</p>
+          </div>
+
+          <div class="vacancy-card" style="margin-bottom:16px;" onclick="this.classList.toggle('expanded')">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:700;color:var(--gray-800);" data-ru="Токарь-карусельщик" data-en="Carousel Lathe Operator">Токарь-карусельщик</h3>
+                <div style="color:var(--gray-600);font-size:0.9rem;margin-top:4px;" data-ru="Полная занятость • Опыт от 3 лет" data-en="Full-time • 3+ years experience">Полная занятость • Опыт от 3 лет</div>
+              </div>
+              <div style="background:var(--primary-lighter);color:#1E5799;padding:6px 14px;border-radius:100px;font-weight:700;font-size:0.9rem;white-space:nowrap;">от 65 000 ₽</div>
+            </div>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;" data-ru="Обработка крупногабаритных деталей на карусельных станках. Чтение чертежей." data-en="Processing of large parts on carousel lathes. Reading blueprints.">Обработка крупногабаритных деталей на карусельных станках. Чтение чертежей.</p>
+          </div>
+        </div>
+
+        <!-- HR Contact -->
+        <div>
+          <div style="background:var(--gray-50);border-radius:20px;padding:36px;border:1px solid var(--gray-200);">
+            <div style="width:56px;height:56px;background:var(--primary-lighter);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#1E5799;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--gray-800);margin-bottom:8px;" data-ru="Служба управления персоналом" data-en="HR Department">Служба управления персоналом</h3>
+            <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6;margin-bottom:24px;" data-ru="По вопросам трудоустройства обращайтесь в отдел кадров" data-en="For employment inquiries, contact HR">По вопросам трудоустройства обращайтесь в отдел кадров</p>
+
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <a href="tel:+78445123457" style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fff;border-radius:12px;border:1px solid var(--gray-200);text-decoration:none;color:var(--gray-700);transition:all 0.3s;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-700)'">
+                <div style="width:40px;height:40px;background:var(--primary-lighter);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#1E5799;flex-shrink:0;">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:0.75rem;color:var(--gray-600);">Телефон</div>
+                  <div style="font-weight:600;">+7 (8445) 12-34-57</div>
+                </div>
+              </a>
+              <a href="mailto:hr@koz-kam.ru" style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fff;border-radius:12px;border:1px solid var(--gray-200);text-decoration:none;color:var(--gray-700);transition:all 0.3s;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-700)'">
+                <div style="width:40px;height:40px;background:var(--primary-lighter);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#1E5799;flex-shrink:0;">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:0.75rem;color:var(--gray-600);">Email</div>
+                  <div style="font-weight:600;">hr@koz-kam.ru</div>
+                </div>
+              </a>
+            </div>
+
+            <button onclick="openModal('hr-apply-modal')" class="btn-primary btn-sm" style="width:100%;justify-content:center;margin-top:20px;">
+              <span data-ru="Отправить резюме" data-en="Send Resume">Отправить резюме</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PAGE: CONTACT ==================== -->
+<main id="page-contact" class="section-page page-transition" style="padding-top:76px;">
+
+  <section style="background:linear-gradient(135deg,#0A1628,#1E5799);padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;text-align:center;">
+      <div style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:100px;color:#fff;font-size:0.85rem;font-weight:600;margin-bottom:20px;">
+        <span data-ru="Контакты" data-en="Contacts">Контакты</span>
+      </div>
+      <h1 style="font-size:3rem;font-weight:900;color:#fff;margin-bottom:20px;" data-ru="Связь с отделом продаж" data-en="Contact Sales">Связь с отделом продаж</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:700px;margin:0 auto;line-height:1.7;" data-ru="Мы всегда готовы ответить на ваши вопросы и обсудить сотрудничество" data-en="We are always ready to answer your questions and discuss cooperation">Мы всегда готовы ответить на ваши вопросы и обсудить сотрудничество</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <!-- Contact Methods -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;">
+        <!-- Phone -->
+        <a href="tel:+78445123456" class="contact-btn" style="flex-direction:column;text-align:center;">
+          <div class="contact-icon" style="margin-bottom:12px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:1.2rem;color:var(--gray-800);">+7 (8445) 12-34-56</div>
+          <div style="font-size:0.85rem;color:var(--gray-600);" data-ru="Пн-Пт: 8:00–17:00" data-en="Mon-Fri: 8:00–17:00">Пн-Пт: 8:00–17:00</div>
+          <div style="color:#1E5799;font-weight:600;font-size:0.9rem;" data-ru="📞 Позвонить сейчас" data-en="📞 Call Now">📞 Позвонить сейчас</div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:sales@koz-kam.ru" class="contact-btn" style="flex-direction:column;text-align:center;">
+          <div class="contact-icon" style="margin-bottom:12px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:1.2rem;color:var(--gray-800);">sales@koz-kam.ru</div>
+          <div style="font-size:0.85rem;color:var(--gray-600);" data-ru="Ответ в течение 24 часов" data-en="Response within 24 hours">Ответ в течение 24 часов</div>
+          <div style="color:#1E5799;font-weight:600;font-size:0.9rem;" data-ru="✉️ Написать письмо" data-en="✉️ Send Email">✉️ Написать письмо</div>
+        </a>
+
+        <!-- Address -->
+        <div class="contact-btn" style="flex-direction:column;text-align:center;cursor:default;">
+          <div class="contact-icon" style="margin-bottom:12px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div style="font-weight:700;font-size:1.1rem;color:var(--gray-800);" data-ru="г. Камышин" data-en="Kamyshin City">г. Камышин</div>
+          <div style="font-size:0.85rem;color:var(--gray-600);line-height:1.5;" data-ru="Волгоградская область, ул. Промышленная, д. 1" data-en="Volgograd Region, Promyshlennaya St., 1">Волгоградская область,<br>ул. Промышленная, д. 1</div>
+          <div style="color:#1E5799;font-weight:600;font-size:0.9rem;margin-top:8px;" data-ru="📍 На карте" data-en=" On Map">📍 На карте</div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+        <div>
+          <h2 style="font-size:1.75rem;font-weight:800;color:var(--gray-800);margin-bottom:24px;" data-ru="Оставить заявку" data-en="Submit a Request">Оставить заявку</h2>
+          <form id="salesForm" onsubmit="submitForm(event,'sales')">
+            <div style="margin-bottom:20px;">
+              <label class="form-label" data-ru="Ваше имя *" data-en="Your Name *">Ваше имя *</label>
+              <input type="text" class="form-input" placeholder="Иванов Иван Иванович" required>
+            </div>
+            <div style="margin-bottom:20px;">
+              <label class="form-label" data-ru="Организация" data-en="Organization">Организация</label>
+              <input type="text" class="form-input" placeholder="ООО «Название»">
+            </div>
+            <div style="margin-bottom:20px;">
+              <label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label>
+              <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div style="margin-bottom:20px;">
+              <label class="form-label" data-ru="Email *" data-en="Email *">Email *</label>
+              <input type="email" class="form-input" placeholder="email@company.ru" required>
+            </div>
+            <div style="margin-bottom:20px;">
+              <label class="form-label" data-ru="Интересующее оборудование" data-en="Equipment of Interest">Интересующее оборудование</label>
+              <select class="form-input">
+                <option value="" data-ru="Выберите категорию" data-en="Select category">Выберите категорию</option>
+                <option data-ru="Нефтяные насосные станции" data-en="Oil Pump Stations">Нефтяные насосные станции</option>
+                <option data-ru="Сепараторы нефтяные" data-en="Oil Separators">Сепараторы нефтяные</option>
+                <option data-ru="Теплообменные аппараты" data-en="Heat Exchangers">Теплообменные аппараты</option>
+                <option data-ru="Резервуары стальные" data-en="Steel Tanks">Резервуары стальные</option>
+                <option data-ru="Установки подготовки нефти" data-en="Oil Treatment Units">Установки подготовки нефти</option>
+                <option data-ru="Запорная арматура" data-en="Valves & Fittings">Запорная арматура</option>
+                <option data-ru="Другое" data-en="Other">Другое</option>
+              </select>
+            </div>
+            <div style="margin-bottom:24px;">
+              <label class="form-label" data-ru="Сообщение" data-en="Message">Сообщение</label>
+              <textarea class="form-input" rows="4" placeholder="Опишите ваш запрос..." style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+              <span data-ru="Отправить заявку" data-en="Send Request">Отправить заявку</span>
+            </button>
+          </form>
+        </div>
+
+        <div>
+          <h2 style="font-size:1.75rem;font-weight:800;color:var(--gray-800);margin-bottom:24px;" data-ru="Режим работы" data-en="Working Hours">Режим работы</h2>
+          <div style="background:var(--gray-50);border-radius:16px;padding:32px;border:1px solid var(--gray-200);margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+              <span style="color:var(--gray-700);font-weight:500;" data-ru="Понедельник" data-en="Monday">Понедельник</span>
+              <span style="font-weight:700;color:var(--gray-800);">8:00 – 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+              <span style="color:var(--gray-700);font-weight:500;" data-ru="Вторник" data-en="Tuesday">Вторник</span>
+              <span style="font-weight:700;color:var(--gray-800);">8:00 – 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+              <span style="color:var(--gray-700);font-weight:500;" data-ru="Среда" data-en="Wednesday">Среда</span>
+              <span style="font-weight:700;color:var(--gray-800);">8:00 – 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+              <span style="color:var(--gray-700);font-weight:500;" data-ru="Четверг" data-en="Thursday">Четверг</span>
+              <span style="font-weight:700;color:var(--gray-800);">8:00 – 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--gray-200);">
+              <span style="color:var(--gray-700);font-weight:500;" data-ru="Пятница" data-en="Friday">Пятница</span>
+              <span style="font-weight:700;color:var(--gray-800);">8:00 – 17:00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px 0;">
+              <span style="color:var(--gray-600);font-weight:500;" data-ru="Суббота – Воскресенье" data-en="Saturday – Sunday">Суббота – Воскресенье</span>
+              <span style="font-weight:700;color:var(--gray-600);" data-ru="Выходной" data-en="Closed">Выходной</span>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="img-placeholder" style="min-height:250px;border-radius:16px;">
+            <div style="text-align:center;">
+              <svg width="48" height="48" fill="none" stroke="var(--gray-300)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div style="font-size:0.9rem;color:var(--gray-600);margin-top:8px;" data-ru="Карта расположения завода" data-en="Factory Location Map">Карта расположения завода</div>
+              <div style="font-size:0.8rem;color:var(--gray-300);margin-top:4px;">[ Будет загружено позже ]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="background:var(--dark);color:#fff;padding:60px 24px 0;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <img src="https://image.qwenlm.ai/public_source/84b5326e-a000-4a39-a21a-f76dc8537faf/18b29e723-47f5-4e6d-9851-689a53aeab1e.png" alt="КОЗ" style="height:40px;" onerror="this.style.display='none'">
+          <div>
+            <div style="font-weight:800;font-size:1rem;color:#fff;" data-ru="Камышинский опытный завод" data-en="Kamyshinsky Experimental Plant">Камышинский опытный завод</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);">с 1957 года</div>
+          </div>
+        </div>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;max-width:300px;" data-ru="Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная временем." data-en="Design, manufacturing and supply of oil and gas equipment. Reliability proven over time.">Проектирование, производство и поставка нефтегазового оборудования. Надёжность, проверенная временем.</p>
+      </div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:16px;color:#fff;font-size:0.95rem;" data-ru="Навигация" data-en="Navigation">Навигация</h4>
+        <a href="#" onclick="showPage('home');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="Главная" data-en="Home">Главная</a>
+        <a href="#" onclick="showPage('about');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="О предприятии" data-en="About">О предприятии</a>
+        <a href="#" onclick="showPage('catalog');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="Каталог" data-en="Catalog">Каталог</a>
+        <a href="#" onclick="showPage('partners');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="Партнёры" data-en="Partners">Партнёры</a>
+        <a href="#" onclick="showPage('careers');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="Вакансии" data-en="Careers">Вакансии</a>
+        <a href="#" onclick="showPage('contact');return false;" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'" data-ru="Контакты" data-en="Contacts">Контакты</a>
+      </div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:16px;color:#fff;font-size:0.95rem;" data-ru="Отдел продаж" data-en="Sales">Отдел продаж</h4>
+        <a href="tel:+78445123456" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">+7 (8445) 12-34-56</a>
+        <a href="mailto:sales@koz-kam.ru" style="display:block;color:rgba(255,255,255,0.6);text-decoration:none;padding:6px 0;font-size:0.9rem;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">sales@koz-kam.ru</a>
+      </div>
+      <div>
+        <h4 style="font-weight:700;margin-bottom:16px;color:#fff;font-size:0.95rem;" data-ru="Личный кабинет" data-en="Personal Account">Личный кабинет</h4>
+        <button onclick="openModal('cabinet-modal')" style="display:flex;align-items:center;gap:8px;padding:12px 20px;background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:inherit;width:100%;justify-content:center;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span data-ru="Войти / Регистрация" data-en="Login / Register">Войти / Регистрация</span>
+        </button>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:12px;line-height:1.6;" data-ru="Подпишитесь на информационную и коммерческую рассылку" data-en="Subscribe to informational and commercial newsletters">Подпишитесь на информационную и коммерческую рассылку</p>
+      </div>
+    </div>
+    <div style="padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <div style="color:rgba(255,255,255,0.5);font-size:0.85rem;">
+        © 1957–<span id="currentYear"></span> <span data-ru="ООО «Камышинский опытный завод»" data-en="LLC «Kamyshinsky Experimental Plant»">ООО «Камышинский опытный завод»</span>. <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span>
+      </div>
+      <div style="display:flex;gap:24px;">
+        <a href="#" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'" data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== MODALS ==================== -->
+
+<!-- Personal Cabinet Modal -->
+<div class="modal-overlay" id="cabinet-modal">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+      <h2 style="font-size:1.5rem;font-weight:800;color:var(--gray-800);" data-ru="Личный кабинет покупателя" data-en="Buyer Personal Account">Личный кабинет покупателя</h2>
+      <button onclick="closeModal('cabinet-modal')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display:flex;gap:4px;background:var(--gray-100);border-radius:10px;padding:4px;margin-bottom:28px;">
+      <button onclick="switchCabinetTab('login')" id="tab-login" class="tab-btn active" style="flex:1;padding:10px;border-radius:8px;font-size:0.9rem;">
+        <span data-ru="Вход" data-en="Login">Вход</span>
+      </button>
+      <button onclick="switchCabinetTab('register')" id="tab-register" class="tab-btn" style="flex:1;padding:10px;border-radius:8px;font-size:0.9rem;">
+        <span data-ru="Регистрация" data-en="Register">Регистрация</span>
+      </button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="cabinet-login" class="tab-content active">
+      <form onsubmit="handleLogin(event)">
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Email" data-en="Email">Email</label>
+          <input type="email" class="form-input" placeholder="email@company.ru" required>
+        </div>
+        <div style="margin-bottom:24px;">
+          <label class="form-label" data-ru="Пароль" data-en="Password">Пароль</label>
+          <input type="password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+          <span data-ru="Войти" data-en="Login">Войти</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div id="cabinet-register" class="tab-content">
+      <form onsubmit="handleRegister(event)">
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Имя *" data-en="Name *">Имя *</label>
+          <input type="text" class="form-input" required>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Организация *" data-en="Organization *">Организация *</label>
+          <input type="text" class="form-input" required>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Email *" data-en="Email *">Email *</label>
+          <input type="email" class="form-input" required>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label>
+          <input type="tel" class="form-input" required>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label class="form-label" data-ru="Пароль *" data-en="Password *">Пароль *</label>
+          <input type="password" class="form-input" required>
+        </div>
+
+        <!-- Newsletter checkboxes -->
+        <div style="background:var(--gray-50);border-radius:12px;padding:16px;margin-bottom:24px;border:1px solid var(--gray-200);">
+          <div style="font-weight:700;color:var(--gray-800);margin-bottom:12px;font-size:0.95rem;" data-ru="Подписка на рассылки" data-en="Newsletter Subscription">Подписка на рассылки</div>
+          <label style="display:flex;align-items:start;gap:10px;margin-bottom:8px;cursor:pointer;">
+            <input type="checkbox" style="margin-top:3px;accent-color:#1E5799;" checked>
+            <span style="font-size:0.85rem;color:var(--gray-600);" data-ru="Информационная рассылка — новости предприятия, события, обновления" data-en="Information newsletter — company news, events, updates">Информационная рассылка — новости предприятия, события, обновления</span>
+          </label>
+          <label style="display:flex;align-items:start;gap:10px;cursor:pointer;">
+            <input type="checkbox" style="margin-top:3px;accent-color:#1E5799;" checked>
+            <span style="font-size:0.85rem;color:var(--gray-600);" data-ru="Коммерческая рассылка — специальные предложения, акции, новые продукты" data-en="Commercial newsletter — special offers, promotions, new products">Коммерческая рассылка — специальные предложения, акции, новые продукты</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+          <span data-ru="Зарегистрироваться" data-en="Register">Зарегистрироваться</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Questionnaire Modals (1-6) -->
+<div class="modal-overlay" id="questionnaire-1">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Нефтяные насосные станции" data-en="Data Sheet: Oil Pump Stations">Опросный лист: Нефтяные насосные станции</h2>
+      <button onclick="closeModal('questionnaire-1')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'ns')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Требуемая производительность, м³/ч" data-en="Required Capacity, m³/h">Требуемая производительность, м³/ч</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Рабочее давление, МПа" data-en="Working Pressure, MPa">Рабочее давление, МПа</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Перекачиваемая среда" data-en="Pumped Medium">Перекачиваемая среда</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Температура среды, °C" data-en="Medium Temperature, °C">Температура среды, °C</label><input type="text" class="form-input"></div>
+      </div>
+      <div style="margin-top:16px;"><label class="form-label" data-ru="Дополнительные требования" data-en="Additional Requirements">Дополнительные требования</label><textarea class="form-input" rows="3"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="questionnaire-2">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Сепараторы нефтяные" data-en="Data Sheet: Oil Separators">Опросный лист: Сепараторы нефтяные</h2>
+      <button onclick="closeModal('questionnaire-2')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'sep')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Тип сепаратора" data-en="Separator Type">Тип сепаратора</label><select class="form-input"><option data-ru="Горизонтальный" data-en="Horizontal">Горизонтальный</option><option data-ru="Вертикальный" data-en="Vertical">Вертикальный</option></select></div>
+        <div><label class="form-label" data-ru="Производительность, м³/сут" data-en="Capacity, m³/day">Производительность, м³/сут</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Рабочее давление, МПа" data-en="Working Pressure, MPa">Рабочее давление, МПа</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Диаметр, мм" data-en="Diameter, mm">Диаметр, мм</label><input type="text" class="form-input"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="questionnaire-3">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Теплообменные аппараты" data-en="Data Sheet: Heat Exchangers">Опросный лист: Теплообменные аппараты</h2>
+      <button onclick="closeModal('questionnaire-3')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'te')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Тип теплообменника" data-en="Exchanger Type">Тип теплообменника</label><select class="form-input"><option data-ru="Кожухотрубный" data-en="Shell-and-tube">Кожухотрубный</option><option data-ru="Пластинчатый" data-en="Plate">Пластинчатый</option></select></div>
+        <div><label class="form-label" data-ru="Тепловая нагрузка, кВт" data-en="Thermal Load, kW">Тепловая нагрузка, кВт</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Площадь теплообмена, м²" data-en="Heat Area, m²">Площадь теплообмена, м²</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Среды (горячая/холодная)" data-en="Media (hot/cold)">Среды (горячая/холодная)</label><input type="text" class="form-input"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="questionnaire-4">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Резервуары стальные" data-en="Data Sheet: Steel Tanks">Опросный лист: Резервуары стальные</h2>
+      <button onclick="closeModal('questionnaire-4')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'tank')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Тип резервуара" data-en="Tank Type">Тип резервуара</label><select class="form-input"><option data-ru="Вертикальный РВС" data-en="Vertical RVS">Вертикальный РВС</option><option data-ru="Горизонтальный РГС" data-en="Horizontal RGS">Горизонтальный РГС</option></select></div>
+        <div><label class="form-label" data-ru="Объём, м³" data-en="Volume, m³">Объём, м³</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Хранимый продукт" data-en="Stored Product">Хранимый продукт</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Климатическое исполнение" data-en="Climate Version">Климатическое исполнение</label><input type="text" class="form-input"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="questionnaire-5">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Установки подготовки нефти" data-en="Data Sheet: Oil Treatment Units">Опросный лист: Установки подготовки нефти</h2>
+      <button onclick="closeModal('questionnaire-5')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'otu')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Производительность, т/сут" data-en="Capacity, tons/day">Производительность, т/сут</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Обводнённость нефти, %" data-en="Oil Water Cut, %">Обводнённость нефти, %</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Требуемое качество нефти" data-en="Required Oil Quality">Требуемое качество нефти</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Климатическое исполнение" data-en="Climate Version">Климатическое исполнение</label><input type="text" class="form-input"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="questionnaire-6">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Опросный лист: Запорная арматура" data-en="Data Sheet: Valves & Fittings">Опросный лист: Запорная арматура</h2>
+      <button onclick="closeModal('questionnaire-6')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitQuestionnaire(event,'valve')">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div><label class="form-label" data-ru="Название организации *" data-en="Organization Name *">Название организации *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Контактное лицо *" data-en="Contact Person *">Контактное лицо *</label><input type="text" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+        <div><label class="form-label" data-ru="Тип арматуры" data-en="Valve Type">Тип арматуры</label><select class="form-input"><option data-ru="Задвижка" data-en="Gate Valve">Задвижка</option><option data-ru="Вентиль" data-en="Globe Valve">Вентиль</option><option data-ru="Кран" data-en="Ball Valve">Кран</option><option data-ru="Обратный клапан" data-en="Check Valve">Обратный клапан</option></select></div>
+        <div><label class="form-label" data-ru="DN (условный диаметр)" data-en="DN (Nominal Diameter)">DN (условный диаметр)</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="PN (давление), МПа" data-en="PN (Pressure), MPa">PN (давление), МПа</label><input type="text" class="form-input"></div>
+        <div><label class="form-label" data-ru="Рабочая среда" data-en="Working Medium">Рабочая среда</label><input type="text" class="form-input"></div>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:20px;"><span data-ru="Отправить опросный лист" data-en="Send Data Sheet">Отправить опросный лист</span></button>
+    </form>
+  </div>
+</div>
+
+<!-- HR Apply Modal -->
+<div class="modal-overlay" id="hr-apply-modal">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+      <h2 style="font-size:1.3rem;font-weight:800;color:var(--gray-800);" data-ru="Отправить резюме" data-en="Send Resume">Отправить резюме</h2>
+      <button onclick="closeModal('hr-apply-modal')" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--gray-200);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-600);font-size:1.2rem;" onmouseover="this.style.borderColor='#1E5799';this.style.color='#1E5799'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-600)'">✕</button>
+    </div>
+    <form onsubmit="submitHR(event)">
+      <div style="margin-bottom:16px;"><label class="form-label" data-ru="ФИО *" data-en="Full Name *">ФИО *</label><input type="text" class="form-input" required></div>
+      <div style="margin-bottom:16px;"><label class="form-label" data-ru="Телефон *" data-en="Phone *">Телефон *</label><input type="tel" class="form-input" required></div>
+      <div style="margin-bottom:16px;"><label class="form-label" data-ru="Email *" data-en="Email *">Email *</label><input type="email" class="form-input" required></div>
+      <div style="margin-bottom:16px;"><label class="form-label" data-ru="Желаемая должность" data-en="Desired Position">Желаемая должность</label><input type="text" class="form-input"></div>
+      <div style="margin-bottom:16px;"><label class="form-label" data-ru="Ссылка на резюме" data-en="Resume Link">Ссылка на резюме</label><input type="url" class="form-input" placeholder="hh.ru/..."></div>
+      <div style="margin-bottom:24px;"><label class="form-label" data-ru="Сопроводительное письмо" data-en="Cover Letter">Сопроводительное письмо</label><textarea class="form-input" rows="3"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><span data-ru="Отправить" data-en="Send">Отправить</span></button>
+    </form>
+  </div>
+</div>
+
+<!-- Success Toast -->
+<div id="success-toast" style="position:fixed;top:100px;right:24px;background:#fff;border-radius:14px;padding:20px 28px;box-shadow:0 12px 40px rgba(0,0,0,0.15);border-left:4px solid #22C55E;z-index:200;display:none;animation:fadeUp 0.4s ease;max-width:360px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:40px;height:40px;background:#DCFCE7;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#22C55E;flex-shrink:0;">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <div>
+      <div style="font-weight:700;color:var(--gray-800);font-size:0.95rem;" data-ru="Успешно отправлено!" data-en="Successfully Sent!">Успешно отправлено!</div>
+      <div style="color:var(--gray-600);font-size:0.85rem;" data-ru="Мы свяжемся с вами в ближайшее время" data-en="We will contact you shortly">Мы свяжемся с вами в ближайшее время</div>
+    </div>
+  </div>
+</div>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+<script src="js/app.js"></script>
+<script>
+// CSP nonce-based inline script (if needed for specific functionality)
+// All main application logic is in js/app.js
+</script>
+</body>
+</html>
