@@ -124,7 +124,31 @@ body {
   cursor: pointer; transition: all 0.3s; text-decoration: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.btn-cabinet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30,87,153,0.4);
+}
+
+/* Footer link hover styles */
+.footer-link:hover {
+  color: #fff !important;
+}
+
+/* Modal close button hover */
+.modal-close-btn:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+/* Contact link hover */
+.contact-link-hover:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
 
 .btn-sm { padding: 10px 20px; font-size: 0.875rem; border-radius: 8px; }
 .btn-lg { padding: 18px 40px; font-size: 1.1rem; border-radius: 14px; }
