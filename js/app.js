@@ -14,7 +14,7 @@
    * Initialize application when DOM is ready
    */
   function init() {
-    setcurrentYear();
+    setCurrentYear();
     setupModalListeners();
     setupScrollListener();
     setupFormListeners();
