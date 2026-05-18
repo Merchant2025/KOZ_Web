@@ -14,10 +14,11 @@
    * Initialize application when DOM is ready
    */
   function init() {
-    setcurrentYear();
+    setCurrentYear();
     setupModalListeners();
     setupScrollListener();
     setupFormListeners();
+    setupEventDelegation();
   }
 
   /**
@@ -201,6 +202,93 @@
    */
   function setupFormListeners() {
     // Add any additional form validation here
+  }
+
+  /**
+   * Setup event delegation for data-action attributes
+   * This replaces inline onclick handlers for better security
+   */
+  function setupEventDelegation() {
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('[data-action]');
+      if (!target) return;
+
+      const action = target.getAttribute('data-action');
+      
+      switch(action) {
+        case 'showPage':
+          e.preventDefault();
+          const page = target.getAttribute('data-page');
+          if (page) showPage(page);
+          if (target.getAttribute('data-close-menu') === 'true') toggleMenu();
+          break;
+          
+        case 'switchLang':
+          e.preventDefault();
+          const lang = target.getAttribute('data-lang');
+          if (lang) switchLang(lang);
+          break;
+          
+        case 'openModal':
+          e.preventDefault();
+          const modalId = target.getAttribute('data-modal');
+          if (modalId) openModal(modalId);
+          break;
+          
+        case 'closeModal':
+          e.preventDefault();
+          const closeId = target.getAttribute('data-modal');
+          if (closeId) closeModal(closeId);
+          break;
+          
+        case 'toggleMenu':
+          e.preventDefault();
+          toggleMenu();
+          break;
+          
+        case 'switchCabinetTab':
+          e.preventDefault();
+          const tab = target.getAttribute('data-tab');
+          if (tab) switchCabinetTab(tab);
+          break;
+          
+        case 'expandCard':
+          e.preventDefault();
+          const card = target.closest('.vacancy-card');
+          if (card) card.classList.toggle('expanded');
+          break;
+          
+        case 'submitForm':
+          e.preventDefault();
+          const formType = target.getAttribute('data-form-type');
+          if (formType && window['submit' + formType.charAt(0).toUpperCase() + formType.slice(1)]) {
+            window['submit' + formType.charAt(0).toUpperCase() + formType.slice(1)]({ target: target.closest('form'), preventDefault: function(){} });
+          }
+          break;
+      }
+    });
+
+    // Handle image onerror with data attribute
+    document.querySelectorAll('img[data-onerror]').forEach(function(img) {
+      img.addEventListener('error', function() {
+        const handler = img.getAttribute('data-onerror');
+        if (handler === 'hide') {
+          img.style.display = 'none';
+        }
+      });
+    });
+
+    // Handle hover effects via CSS class
+    document.querySelectorAll('.hover-effect').forEach(function(el) {
+      el.addEventListener('mouseenter', function() {
+        el.style.transform = 'translateY(-2px)';
+        el.style.boxShadow = '0 8px 25px rgba(30,87,153,0.4)';
+      });
+      el.addEventListener('mouseleave', function() {
+        el.style.transform = '';
+        el.style.boxShadow = '0 4px 15px rgba(30,87,153,0.3)';
+      });
+    });
   }
 
   /**
