@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Прототип нового интерфейса сайта Камышинского опытного завода.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>KOZ Web — прототип интерфейса</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <div class="prototype-banner" role="status">Прототип интерфейса — не является действующим официальным сайтом</div>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#home" aria-label="На главную">
+        <span class="brand-mark" aria-hidden="true">КОЗ</span>
+        <span><strong>Камышинский опытный завод</strong><small>Проект нового интерфейса</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Меню</button>
+      <nav id="navigation" class="navigation" aria-label="Основная навигация">
+        <a href="#about">О предприятии</a>
+        <a href="#products">Продукция</a>
+        <a href="#status">Статус проекта</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Корпоративный веб-проект</p>
+          <h1>Новый цифровой интерфейс предприятия</h1>
+          <p class="lead">Без неподтверждённых характеристик, фиктивных форм и временных контактных данных. Содержимое будет публиковаться только после сверки с официальными материалами.</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://koz.ru/" rel="noopener noreferrer">Перейти на действующий сайт</a>
+            <a class="button button-secondary" href="#status">Посмотреть готовность</a>
+          </div>
+        </div>
+        <div class="visual-card" aria-label="Область для согласованного изображения предприятия">
+          <div class="visual-symbol" aria-hidden="true">🏭</div>
+          <strong>Медиаматериалы ожидают согласования</strong>
+          <span>Фотографии и логотипы не загружаются со сторонних генераторов.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container narrow">
+        <p class="eyebrow">О предприятии</p>
+        <h2>Информация без неподтверждённых показателей</h2>
+        <p>В прототипе намеренно не указаны год основания, численность персонала, площадь, количество патентов, клиентов и поставленного оборудования. Эти сведения должны переноситься только из утверждённых источников предприятия.</p>
+      </div>
+    </section>
+
+    <section id="products" class="section section-muted">
+      <div class="container">
+        <p class="eyebrow">Каталог</p>
+        <h2>Продукция будет синхронизирована с koz.ru</h2>
+        <div class="cards">
+          <article class="card"><h3>Номенклатура</h3><p>Только позиции, присутствующие на действующем официальном сайте.</p></article>
+          <article class="card"><h3>Характеристики</h3><p>Технические параметры — после проверки конструкторской или коммерческой службой.</p></article>
+          <article class="card"><h3>Опросные листы</h3><p>Документы — из утверждённого источника с контролем версии и даты.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="container">
+        <p class="eyebrow">Статус</p>
+        <h2>Что требуется до публикации</h2>
+        <ol class="checklist">
+          <li><span>1</span>Согласовать фирменное оформление и право использования материалов.</li>
+          <li><span>2</span>Сверить продукцию, контакты, партнёров и документы с ответственными подразделениями.</li>
+          <li><span>3</span>Подключить серверную обработку форм, уведомления и политику персональных данных.</li>
+          <li><span>4</span>Выполнить функциональное, мобильное, SEO- и security-тестирование.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contacts" class="section contact-section">
+      <div class="container narrow">
+        <p class="eyebrow">Контакты</p>
+        <h2>Используйте действующий официальный сайт</h2>
+        <p>В прототип не включены временные телефоны, адреса электронной почты или формы, которые имитируют отправку заявки.</p>
+        <a class="button button-primary" href="https://koz.ru/" rel="noopener noreferrer">Открыть koz.ru</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><span>KOZ Web — прототип</span><span id="current-year"></span></div></footer>
+</body>
+</html>
