@@ -1,0 +1,26 @@
+name: Сообщение об ошибке
+description: Зафиксировать воспроизводимую техническую проблему
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание
+      description: Что произошло и что ожидалось?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия или commit SHA
+  - type: textarea
+    id: logs
+    attributes:
+      label: Логи без секретов и персональных данных
