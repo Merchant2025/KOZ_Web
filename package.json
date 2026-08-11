@@ -5,6 +5,11 @@
   "description": "Проверяемый статический прототип интерфейса KOZ Web",
   "scripts": {
     "test": "node --test",
-    "check": "node --check js/app.js && node --test"
+    "check": "node --check js/app.js && node --test",
+    "validate:html": "html-validate index.html"
+  },
+  "devDependencies": {
+    "cheerio": "1.2.0",
+    "html-validate": "11.6.2"
   }
 }
