@@ -6,6 +6,7 @@ const cheerio = require("cheerio");
 
 const html = fs.readFileSync("index.html", "utf8");
 const css = fs.readFileSync("css/styles.css", "utf8");
+const headers = fs.readFileSync("_headers", "utf8");
 const $ = cheerio.load(html);
 
 function isLocalReference(reference) {
@@ -99,4 +100,13 @@ test("mobile navigation remains available without JavaScript", () => {
   assert.match(html, /<script src="js\/app\.js"><\/script>\s*<link rel="stylesheet"/i);
   assert.match(css, /\.js \.navigation\s*\{[^}]*display:none/);
   assert.doesNotMatch(css, /(?<!\.js )\.navigation\s*\{[^}]*display:none/);
+});
+
+test("Netlify serves the required security headers", () => {
+  assert.match(headers, /^\/\*$/m);
+  assert.match(headers, /Content-Security-Policy: .*frame-ancestors 'none'/);
+  assert.match(headers, /X-Content-Type-Options: nosniff/);
+  assert.match(headers, /Referrer-Policy: strict-origin-when-cross-origin/);
+  assert.match(headers, /Strict-Transport-Security: max-age=31536000/);
+  assert.doesNotMatch(html, /http-equiv=["']Content-Security-Policy/i);
 });
