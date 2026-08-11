@@ -5,6 +5,7 @@ const path = require("node:path");
 const cheerio = require("cheerio");
 
 const html = fs.readFileSync("index.html", "utf8");
+const css = fs.readFileSync("css/styles.css", "utf8");
 const $ = cheerio.load(html);
 
 function isLocalReference(reference) {
@@ -26,7 +27,6 @@ function accessibleName(element) {
 
   return element.text().trim();
 }
-
 test("prototype is not indexed or presented as production", () => {
   assert.match(html, /noindex, nofollow/);
   assert.match(html, /не является действующим официальным сайтом/);
@@ -92,4 +92,11 @@ test("menu button has a valid accessible initial state", () => {
   const navigation = $(`[id="${controlledIds[0]}"]`);
   assert.equal(menuButton.attr("aria-expanded"), "false");
   assert.ok(!navigation.hasClass("open"), "collapsed navigation must not have the open class");
+});
+
+test("mobile navigation remains available without JavaScript", () => {
+  assert.match(html, /<html[^>]*class="no-js"/i);
+  assert.match(html, /<script src="js\/app\.js"><\/script>\s*<link rel="stylesheet"/i);
+  assert.match(css, /\.js \.navigation\s*\{[^}]*display:none/);
+  assert.doesNotMatch(css, /(?<!\.js )\.navigation\s*\{[^}]*display:none/);
 });
