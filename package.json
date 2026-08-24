@@ -15,6 +15,6 @@
   },
   "devDependencies": {
     "cheerio": "1.2.0",
-    "html-validate": "11.6.2"
+    "html-validate": "11.9.0"
   }
 }
